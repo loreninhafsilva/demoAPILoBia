@@ -1,5 +1,6 @@
 package com.example.demoAPILoBia.controller;
 
+import com.example.demoAPILoBia.model.Aluno;
 import com.example.demoAPILoBia.model.Professor;
 import com.example.demoAPILoBia.repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,4 +46,15 @@ public class ProfessorController {
         profRepo.save(pf);
     }
 
+    @GetMapping("/todos/nomesalario/{nome}/{salario}")
+    public List<Professor> findByNomeSalario (@PathVariable("nome") String nome, @PathVariable("salario") double salario)
+    {
+        return profRepo.findByNomeSalario(nome, salario);
+    }
+
+    @GetMapping("/todos/nomecodigo/{nome}/{cod}")
+    public List<Professor> findByNomeCodigo (@PathVariable("nome") String nome, @PathVariable("cod") int cod)
+    {
+        return profRepo.findByNomeCodigo(nome, cod);
+    }
 }

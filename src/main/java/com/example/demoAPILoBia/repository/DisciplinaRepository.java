@@ -9,4 +9,5 @@ public interface DisciplinaRepository extends JpaRepository <Disciplina, Integer
 
     List<Disciplina> findByNome(String nome);
     List<Disciplina> findBySigla(String sigla);
+
 }
